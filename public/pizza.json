@@ -1,0 +1,51 @@
+[
+    {
+        "img" : "./pizza/pizzaBasket/peperoniB.png",
+        "name" : "Пепероні",
+        "cm" : 30,
+        "dough" : "пишне",
+        "price" : 250,
+        "ingredients" : ["Моцарела", "салямі Пепероні", "томатний соус (основа)"]
+    },
+    {
+        "img" : "./pizza/pizzaBasket/hawaiianB.png",
+        "name" : "Гавайська",
+        "cm" : 30,
+        "dough" : "пишне",
+        "price" : 220,
+        "ingredients" : ["ананас", "копченая курица", "Моцарела", "томатний соус (основа)"]
+    },
+    {
+        "img" : "./pizza/pizzaBasket/fourCheesesB.png",
+        "name" : "Чотири сири",
+        "cm" : 30,
+        "dough" : "пишне",
+        "price" : 260,
+        "ingredients" : ["Дор блю", "Пармезан", "Чеддер", "Моцарела", "Вершковий соус Альфредо (основа)"]
+    },
+
+    {
+        "img" : "./pizza/pizzaBasket/chickenJackB.png",
+        "name" : "Курча Джек",
+        "cm" : 30,
+        "dough" : "пишне",
+        "price" : 260,
+        "ingredients" : ["BBQ соус (основа)", "бекон", "курка", "гриль", "цибуля", "Моцарела", "перчик Халапеньо", "соус 'Jack Daniel's' ®", "печериці"]
+    },
+    {
+        "img" : "./pizza/pizzaBasket/fourCheesesAndSpinachB.png",
+        "name" : "Чотири сири та Шпинат",
+        "cm" : 30,
+        "dough" : "пишне",
+        "price" : 230,
+        "ingredients" : ["Пармезан", "Фета", "Моцарела", "Вершковий соус Альфредо (основа)", "сир Філадельфія" , "соус 'Jack Daniel's' ®", "шпинат"]
+    },
+    {
+        "img" : "./pizza/pizzaBasket/pepperoni in HawaiiB.png",
+        "name" : "Пепероні на Гаваях",
+        "cm" : 30,
+        "dough" : "пишне",
+        "price" : 280,
+        "ingredients" : ["ананас", "копченая курица", "Моцарела", "салямі Пепероні", "томатний соус (основа)"]
+    }
+]

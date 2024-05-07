@@ -1,0 +1,171 @@
+.mainPizzaMakers{
+    width: 900px;
+    padding: 0 14%;
+
+    & h1{
+        font-weight: 400;
+    }
+}
+
+.twoPizzas{
+    width: 100%;
+    height: 560px;
+    background: url("../public/PizzaMaker/Background.png");
+    background-size: contain;
+}
+
+.imgPizza1{
+    margin: 0 30%;
+}
+
+.imgPizza2{
+    margin: 0 30%;
+}
+
+.divMaking{
+    background-color: #FFFAF4;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 8%;
+}
+
+
+.divMaking{padding: 10px 40px}
+
+.lineOne{
+    display: flex;
+    flex-direction: column;
+}
+
+.lineFour{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lineOne h3,
+.lineTwo h3,
+.lineTree h3{
+    margin-bottom: 25px;
+}
+
+.selectName{
+    width: 382px;
+    height: 40px;
+    border: none;
+    background-color: #F6ECE0;
+    color: #8F795F;
+}
+
+.choosingPizza{
+    display: flex;
+    gap: 3%;
+}
+
+h3{
+    font-weight: 400;
+}
+
+.divFilling{
+    display: flex;
+    align-items: center;
+    gap: 2%;
+}
+
+.filling{
+    display: flex;
+    align-items: center;
+    background-color: #F6ECE0;
+    width: 200px;
+    height: 42px;
+}
+
+.filling2{
+    width: 500px;
+    height: 42px;
+}
+
+.filling p{
+    font-size: 10px;
+    color: #8F795F;
+}
+
+.divCirclePizza{
+    background-color: #ede0d0;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divCirclePizza img{
+    width: 42px;
+    height: 42px;
+}
+
+.circlePizza{
+    background-color: #f3fae5;
+    border-radius: 100px;
+    z-index: 100;
+    width: 33px;
+    height: 33px;    
+}
+
+.circlePizza2{background-color: #c90b13;}
+.circlePizza3, .circlePizza4{background-color: #fdf5d1;}
+.circlePizza5{background-color: #a71919;}
+
+.content{margin: 10px}
+
+.clear {clear: both;}
+  
+  .checkBox {
+    display: block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #beb3a7;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .checkBox div {
+    width: 60px;
+    height: 60px;
+    background-color: #beb3a7;
+    top: -52px;
+    left: -52px;
+    position: absolute;
+    transform: rotateZ(45deg);
+    z-index: 100;
+  }
+  
+  .checkBox input[type=checkbox]:checked + div {
+    left: -10px;
+    top: -10px;
+  }
+  
+  .checkBox input[type=checkbox] {
+    position: absolute;
+    left: 50px;
+    visibility: hidden;
+  }
+  
+  .transition {
+    transition: 300ms ease;
+  }
+
+
+  .btnAddBasket{
+    background-color: #a9d282;
+    color: #fff;
+    border: none; 
+    width: 50%;
+    height: 50%;
+    border-radius: 100px;
+
+    &:hover{cursor: pointer}
+  }

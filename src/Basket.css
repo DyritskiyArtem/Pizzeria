@@ -1,0 +1,215 @@
+.basket h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 28px;
+    margin-top: 30px;
+}
+
+.mainDivBasketPizza {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BasketPizza {
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: -10px;
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+.BasketPizza img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.pizzaName{color: #E95A10}
+
+.BasketPizza .divPrise {
+    position: absolute;
+    font-size: 30px;
+    margin: 0 0 2% 67%;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+.divPrise p{
+    font-weight: 400;
+}
+
+.BasketPizza div:last-child {
+    margin-right: 0;
+    font-weight: bold;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 19%;
+    align-items: center;
+}
+
+.buttons button {
+    padding: 10px 16px;
+    margin: 0 30px;
+    font-size: 16px;
+    background-color: #54AA0F;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.aMenu{
+    font-size: 25px;
+    color: #000;
+    text-decoration: underline;
+}
+
+.emptyBasket{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  margin-top: 6.7%;
+  margin-bottom: 6.7%;
+}
+
+.aMenu2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 25px;
+  color: #000;
+  text-decoration: underline;
+}
+
+.buttons div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buttons p{
+    font-size: 25px;
+}
+
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+  
+.close {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    color: #007bff;
+  }
+}
+
+.nameAndPhone{
+  display: flex;
+  gap: 10%;
+  width: 70%;
+  margin-bottom: 5%;
+}
+
+#name,
+#phone{
+  width: 272px;
+}
+
+.divInput{
+  display: flex;
+  flex-direction: column;
+}
+
+.Modal {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 20px;
+  z-index: 1000;
+  width: 700px;
+  height: 320px;
+  max-width: 80%;
+  outline: none;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+}
+
+.Modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Modal-header h2{
+  margin: -1% 21.1%;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.Modal-close {
+  font-size: 80px;
+  font-weight: 200;
+  cursor: pointer;
+  color: #999999;
+  margin-top: -6%;
+  transition: all .10s ease-in-out;
+
+  &:hover{color: #000}
+}
+
+.Modal-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+}
+
+.Modal-content label{
+  font-size: 25px;
+}
+
+.Modal-input {
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #f9e6d3;
+  margin-bottom: 10px;
+  width: 94.9%;
+}
+
+.Modal-button {
+  margin: 0 22%;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #54aa0f;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  align-self: center;
+  width: 50%;
+}
