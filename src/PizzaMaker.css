@@ -14,12 +14,28 @@
     background-size: contain;
 }
 
+.divTwoPizzas{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1%;
+}
+
+.pizzaContainer1,
+.pizzaContainer2{
+    width: 141.5px;
+    overflow: hidden;
+}
+
 .imgPizza1{
-    margin: 0 30%;
+    width: 283px;
 }
 
 .imgPizza2{
-    margin: 0 30%;
+    width: 283px;
+    position: relative;
+    right: 141.5px;
 }
 
 .divMaking{

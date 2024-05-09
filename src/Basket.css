@@ -5,6 +5,17 @@
     margin-top: 30px;
 }
 
+.btnClearBasket{
+  margin: 0 82%;
+  margin-bottom: 0.5%;
+  font-size: 19px;
+  border: none;
+  background: none;
+  color: #A1A1A1;
+  text-decoration: underline;
+  &:hover{cursor: pointer;}
+}
+
 .mainDivBasketPizza {
     display: flex;
     flex-direction: column;

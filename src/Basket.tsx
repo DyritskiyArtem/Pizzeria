@@ -5,9 +5,12 @@ import { Pizza } from "./Main";
 import { Link } from "react-router-dom";
 import Modal from 'react-modal';
 
-interface BasketProps { pizzas: Pizza[] }
+interface BasketProps {
+    pizzas: Pizza[];
+    clearBasket: () => void;
+  }
 
-function Basket({ pizzas }: BasketProps) {
+function Basket({ pizzas, clearBasket }: BasketProps) {
     const totalPrice = pizzas.reduce((total, pizza) => total + pizza.price, 0);
 
     useLayoutEffect(() => {
@@ -64,6 +67,7 @@ function Basket({ pizzas }: BasketProps) {
         <div>
             <div className="basket">
                 <h2>Ваш кошик</h2>
+                <button className="btnClearBasket" onClick={clearBasket}>Очистити</button>
 
                 <div className="mainDivBasketPizza">
                     {pizzas?.map((pizza, index) => (

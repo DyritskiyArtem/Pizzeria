@@ -40,14 +40,16 @@ function PizzaMaker({ pizzas }: PizzaMakerProps) {
             <h1>Дві улюблених в одній піці</h1>
             <div>
                 <div className="twoPizzas">
-                    {pizza1 == null ? 
-                    <p>Виберіть піцу</p> :
-                    <img className="imgPizza1" src={pizza1.img} alt=""/>                    
-                    }
-                    {pizza2 == null ? 
-                    <p>Виберіть піцу</p> :
-                    <img className="imgPizza2" src={pizza2.img} alt=""/>                    
-                    }
+                    <div className="divTwoPizzas">
+                        {pizza1 == null ? 
+                            <p>Виберіть піцу</p> :
+                            <div className="pizzaContainer1"><img className="imgPizza1" src={pizza1.img} alt=""/></div>
+                        }
+                        {pizza2 == null ? 
+                            <p>Виберіть піцу</p> :
+                            <div className="pizzaContainer2"><img className="imgPizza2" src={pizza2.img} alt=""/></div>
+                        }
+                    </div>
                 </div>
                 <div className="divMaking">
                     <div className="lineOne">

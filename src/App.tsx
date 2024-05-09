@@ -28,12 +28,16 @@ function App() {
     fetchPizzas();
   }, []);
 
+  const clearBasket = () => {
+    setBasket([]);
+  };
+
   return (
       <Router>
         <Header/>
         <Routes>
-        <Route path="/" element={<Main pizzas={pizzas} setBasket={setBasket} setPizzas={setPizzas}/>}/>
-          <Route path="/basket" element={<Basket pizzas={basket}/>}/>
+        <Route path="/" element={<Main pizzas={pizzas} basket={basket} setBasket={setBasket} setPizzas={setPizzas}/>}/>
+          <Route path="/basket" element={<Basket pizzas={basket} clearBasket={clearBasket}/>}/>
           <Route path="/pizzamaker" element={<PizzaMaker pizzas={pizzas}/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>

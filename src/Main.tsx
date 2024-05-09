@@ -15,6 +15,7 @@ export interface Pizza {
 
 interface MainProps {
     pizzas: Pizza[],
+    basket: Pizza[],
     setBasket: (basket: Pizza[]) => void,
     setPizzas: React.Dispatch<React.SetStateAction<Pizza[]>>
 }
@@ -25,7 +26,7 @@ export enum Dough {
     HotDog = "хот-дог"
 }
 
-function Main({ pizzas, setBasket, setPizzas }: MainProps) {
+function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
 
     const doughOptions = Object.values(Dough).map((dough) => (
         <option key={dough} value={dough}>
@@ -33,13 +34,16 @@ function Main({ pizzas, setBasket, setPizzas }: MainProps) {
         </option>
     ));
 
-    useLayoutEffect(() => {
-        window.scrollTo(0, 0)
-    });
+    // useLayoutEffect(() => {
+    //     window.scrollTo(0, 0)
+    // });
 
     function addBasket(pizza: Pizza) {
-        console.log(pizza)
-        setBasket([pizza])
+        console.log(pizza);
+
+        const newBasket = [...basket];
+        newBasket.push(pizza);
+        setBasket(newBasket);
     }
 
     function onChangeSelect(e: React.ChangeEvent<HTMLSelectElement>, index: number) {
