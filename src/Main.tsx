@@ -56,6 +56,14 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
         setPizzas(newPizzas);
     }
 
+    function onChangeCentimeters(cm: number, index: number) {
+        const newPizzas = [...pizzas];
+        const pizza = newPizzas[index];
+        const newPizza = { ...pizza, cm };
+        newPizzas[index] = newPizza;
+        setPizzas(newPizzas);
+    }
+
     return (
         <main>
             <div className="title">
@@ -68,7 +76,7 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
                     <div className="pizza1" key={index}>
                         <img src={pizza.img} />
                         <h2>{pizza.name}</h2>
-                        <div className="centimeters"><p className={(pizza.cm === 25) ? "active" : ""}>25 см</p><p className={(pizza.cm === 30) ? "active" : ""}>30 см</p><p className={(pizza.cm === 35) ? "active" : ""}>35 см</p></div>
+                        <div className="centimeters"><p onClick={(e) => onChangeCentimeters(25, index)} className={(pizza.cm === 25) ? "active" : ""}>25 см</p><p onClick={(e) => onChangeCentimeters(30, index)} className={(pizza.cm === 30) ? "active" : ""}>30 см</p><p onClick={(e) => onChangeCentimeters(35, index)} className={(pizza.cm === 35) ? "active" : ""}>35 см</p></div>
                         <div className="dough">
                             <p>Тісто</p>
                             <select className="selectDough" onChange={(e) => onChangeSelect(e, index)} value={pizza.dough}>{doughOptions}</select>

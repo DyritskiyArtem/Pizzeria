@@ -54,6 +54,10 @@ nav button {
   cursor: pointer;
 }
 
+.basketBtn a {
+  text-decoration: none;
+}
+
 .logo {
   width: 105px;
   height: 105px;

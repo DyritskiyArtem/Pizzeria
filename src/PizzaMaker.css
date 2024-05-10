@@ -22,20 +22,24 @@
     gap: 1%;
 }
 
+.halfPizza{
+    width: 25%;
+}
+
 .pizzaContainer1,
 .pizzaContainer2{
-    width: 141.5px;
+    width: 300px;
     overflow: hidden;
 }
 
 .imgPizza1{
-    width: 283px;
+    width: 600px;
 }
 
 .imgPizza2{
-    width: 283px;
+    width: 600px;
     position: relative;
-    right: 141.5px;
+    right: 300px;
 }
 
 .divMaking{

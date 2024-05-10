@@ -42,11 +42,11 @@ function PizzaMaker({ pizzas }: PizzaMakerProps) {
                 <div className="twoPizzas">
                     <div className="divTwoPizzas">
                         {pizza1 == null ? 
-                            <p>Виберіть піцу</p> :
+                            <img className="halfPizza" src="/PizzaMaker/half1.png"/> :
                             <div className="pizzaContainer1"><img className="imgPizza1" src={pizza1.img} alt=""/></div>
                         }
                         {pizza2 == null ? 
-                            <p>Виберіть піцу</p> :
+                            <img className="halfPizza" src="/PizzaMaker/half2.png"/> :
                             <div className="pizzaContainer2"><img className="imgPizza2" src={pizza2.img} alt=""/></div>
                         }
                     </div>
