@@ -11,7 +11,7 @@ interface BasketProps {
   }
 
 function Basket({ pizzas, clearBasket }: BasketProps) {
-    const totalPrice = pizzas.reduce((total, pizza) => total + pizza.price, 0);
+    const totalPrice = pizzas.reduce((total, pizza) => total + getPrice(pizza), 0);
 
     useLayoutEffect(() => {
         window.scrollTo(0, 0)
@@ -53,6 +53,19 @@ function Basket({ pizzas, clearBasket }: BasketProps) {
         alert('Замовлення оформлено');
     }
 
+    function getPrice(pizza: Pizza): number {        
+      if (pizza.cm == 25) {
+          return pizza.price * 0.8;             
+      }        
+      if (pizza.cm == 30) {
+          return pizza.price;             
+      }
+      if (pizza.cm == 35) {
+          return pizza.price * 1.2;             
+      }
+      return pizza.price;
+    }
+
     if (pizzas.length === 0) {
         return (
             <div className="basket">
@@ -77,7 +90,7 @@ function Basket({ pizzas, clearBasket }: BasketProps) {
                                 <h2 className="pizzaName">{pizza.name}</h2>
                                 <p className="pCmDough">{pizza.cm}, {pizza.dough} тісто</p>
                             </div>
-                            <div className="divPrise"><p>{pizza.price} грн.</p></div>
+                            <div className="divPrise"><p>{getPrice(pizza)} грн.</p></div>
                         </div>
                     ))}
                 </div>

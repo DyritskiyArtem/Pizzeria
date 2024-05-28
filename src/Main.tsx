@@ -64,6 +64,30 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
         setPizzas(newPizzas);
     }
 
+    function getPrice(pizza: Pizza): number {        
+        let price = pizza.price;        
+        if (pizza.cm == 25) {
+            price = price * 0.8;
+        }        
+        if (pizza.cm == 30) {
+            price = price;             
+        }
+        if (pizza.cm == 35) {
+            price = price * 1.2;        
+        }
+        if (pizza.dough == Dough.Thin){
+            price = price;
+        }
+        if (pizza.dough == Dough.Lush){
+            price = price + 10;
+        }
+        if (pizza.dough == Dough.HotDog){
+            price = price + 20;
+        }
+
+        return price;
+    }
+
     return (
         <main>
             <div className="title">
@@ -76,12 +100,16 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
                     <div className="pizza1" key={index}>
                         <img src={pizza.img} />
                         <h2>{pizza.name}</h2>
-                        <div className="centimeters"><p onClick={(e) => onChangeCentimeters(25, index)} className={(pizza.cm === 25) ? "active" : ""}>25 см</p><p onClick={(e) => onChangeCentimeters(30, index)} className={(pizza.cm === 30) ? "active" : ""}>30 см</p><p onClick={(e) => onChangeCentimeters(35, index)} className={(pizza.cm === 35) ? "active" : ""}>35 см</p></div>
+                        <div className="centimeters">
+                            <p onClick={(e) => onChangeCentimeters(25, index)} className={(pizza.cm === 25) ? "active" : ""}>25 см</p>
+                            <p onClick={(e) => onChangeCentimeters(30, index)} className={(pizza.cm === 30) ? "active" : ""}>30 см</p>
+                            <p onClick={(e) => onChangeCentimeters(35, index)} className={(pizza.cm === 35) ? "active" : ""}>35 см</p>
+                        </div>
                         <div className="dough">
                             <p>Тісто</p>
                             <select className="selectDough" onChange={(e) => onChangeSelect(e, index)} value={pizza.dough}>{doughOptions}</select>
                         </div>
-                        <div className="order"><p>{pizza.price} грн.</p><Link to={'/basket'} className='Name'><button onClick={() => addBasket(pizza)}>ЗАМОВИТИ</button></Link></div>
+                        <div className="order"><p>{getPrice(pizza)} грн.</p><Link to={'/basket'} className='Name'><button onClick={() => addBasket(pizza)}>ЗАМОВИТИ</button></Link></div>
                         <p>{pizza.ingredients.join(' • ')}</p>
                     </div>
                 )}
