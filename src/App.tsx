@@ -8,10 +8,14 @@ import NotFound from './NotFound';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import {Pizza} from './Main';
 import PizzaMaker from "./PizzaMaker"
+import { TwoHalfPizza } from "./PizzaMaker";
+import {AnyPizza} from "./Main";
+import {getBasketFromLocalStorage} from "./Basket";
+import Carousel from './Carousel';
 
 function App() {
   const [pizzas, setPizzas] = useState<Pizza[]>([]);
-  const [basket, setBasket] = useState<Pizza[]>([]);
+  const [basket, setBasket] = useState<AnyPizza[]>(getBasketFromLocalStorage());
 
   const fetchPizzas = () => {
     fetch('pizza.json')
@@ -37,10 +41,11 @@ function App() {
         <Header/>
         <Routes>
         <Route path="/" element={<Main pizzas={pizzas} basket={basket} setBasket={setBasket} setPizzas={setPizzas}/>}/>
-          <Route path="/basket" element={<Basket pizzas={basket} clearBasket={clearBasket}/>}/>
-          <Route path="/pizzamaker" element={<PizzaMaker pizzas={pizzas}/>}/>
+          <Route path="/basket" element={<Basket basket={basket} clearBasket={clearBasket}/>}/>
+          <Route path="/pizzamaker" element={<PizzaMaker pizzas={pizzas} basket={basket} setBasket={setBasket}/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
+        <Carousel/>
         <Footer/>
       </Router>
   );

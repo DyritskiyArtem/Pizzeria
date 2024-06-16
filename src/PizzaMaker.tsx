@@ -1,19 +1,31 @@
 import React, {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 import './PizzaMaker.css';
 import './App.css';
 import { Pizza } from './Main';
 import { Dough } from './Main';
+import { getPrice } from './Basket';
+import {AnyPizza} from "./Main";
+import {setLocalStorageFromBasket} from "./Basket";
 
-interface PizzaMakerProps { pizzas: Pizza[] }
+interface PizzaMakerProps { 
+    pizzas: Pizza[],
+    basket: (AnyPizza)[], 
+    setBasket: (basket: (AnyPizza)[]) => void,
+}
 
-interface TwoHalfPizza{
+export interface TwoHalfPizza{
     pizza1: Pizza | null,
     pizza2: Pizza | null,
     souse: Souse,
     dough: Dough,
 }
 
-enum Souse{
+export function instanceOfTwoHalfPizza(object: any): object is TwoHalfPizza {
+    return 'souse' in object;
+}
+
+export enum Souse{
     Ranch = "ранч",
     Tomato = "томатний",
     Plum = "сливовий",
@@ -21,7 +33,7 @@ enum Souse{
     BBQ = "BBQ",
 }
 
-function PizzaMaker({ pizzas }: PizzaMakerProps) {
+function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
     const pizzaOptions = pizzas.map((pizza, index) => (
         <option key={pizza.name} value={index}>
           {pizza.name}
@@ -35,20 +47,26 @@ function PizzaMaker({ pizzas }: PizzaMakerProps) {
     function handleChange(e: React.FormEvent<HTMLSelectElement>) {
         const pizzaSelect = e.target as HTMLSelectElement;
         const index = +pizzaSelect.value;
-        console.log(index);
-        
-        const pizza = pizzas[index];
-        setTwoHalfPizza({...twoHalfPizza, pizza1: pizza});        
-    }
+      
+        if (index === -1) {
+          setTwoHalfPizza({ ...twoHalfPizza, pizza1: null });
+        } else {
+          const pizza = pizzas[index];
+          setTwoHalfPizza({ ...twoHalfPizza, pizza1: pizza });
+        }
+      }
 
-    function handleChange2(e: React.FormEvent<HTMLSelectElement>) {
+      function handleChange2(e: React.FormEvent<HTMLSelectElement>) {
         const pizzaSelect2 = e.target as HTMLSelectElement;
         const index2 = +pizzaSelect2.value;
-        console.log(index2);
-        
-        const pizza2 = pizzas[index2];
-        setTwoHalfPizza({...twoHalfPizza, pizza2: pizza2});     
-    }
+      
+        if (index2 === -1) {
+          setTwoHalfPizza({ ...twoHalfPizza, pizza2: null });
+        } else {
+          const pizza2 = pizzas[index2];
+          setTwoHalfPizza({ ...twoHalfPizza, pizza2: pizza2 });
+        }
+      }
 
     function addSouse(souse: Souse) {
         const newTowHalfPizza = {...twoHalfPizza, souse};
@@ -60,60 +78,24 @@ function PizzaMaker({ pizzas }: PizzaMakerProps) {
         setTwoHalfPizza(newTowHalfPizza);
     }
 
-    function getPrice(twoHalfPizza: TwoHalfPizza): number {  
-        if (twoHalfPizza.pizza1 == null || twoHalfPizza.pizza2 == null) {return 0;}
-        let price = getPrice2(twoHalfPizza.pizza1) / 2 + getPrice2(twoHalfPizza.pizza2) / 2;
-        if (twoHalfPizza.souse == Souse.Ranch) {
-            price = price + 4;
-        }        
-        if (twoHalfPizza.souse == Souse.Tomato) {
-            price = price + 6;             
-        }
-        if (twoHalfPizza.souse == Souse.Plum) {
-            price = price + 5;        
-        }
-        if (twoHalfPizza.souse == Souse.Cheese) {
-            price = price + 7;        
-        }
-        if (twoHalfPizza.souse == Souse.BBQ) {
-            price = price + 7;        
-        }
+    function areAllOptionsSelected(twoHalfPizza: TwoHalfPizza): boolean {
+        return (
+          twoHalfPizza.pizza1 !== null && twoHalfPizza.pizza2 !== null
+        );
+      }
 
-        if (twoHalfPizza.dough == Dough.Thin){
-            price = price;
-        }
-        if (twoHalfPizza.dough == Dough.Lush){
-            price = price + 10;
-        }
-        if (twoHalfPizza.dough == Dough.HotDog){
-            price = price + 20;
-        }
+    const navigate = useNavigate();
 
-        return price;
-    }
+    function addBasket(twoHalfPizza: TwoHalfPizza) {
+        console.log(twoHalfPizza);
+      
+        const newBasket = [...basket];
+        newBasket.push(twoHalfPizza);
+        setBasket(newBasket);
 
-    function getPrice2(pizza: Pizza): number {        
-        let price = pizza.price;        
-        if (pizza.cm == 25) {
-            price = price * 0.8;
-        }        
-        if (pizza.cm == 30) {
-            price = price;             
-        }
-        if (pizza.cm == 35) {
-            price = price * 1.2;        
-        }
-        if (pizza.dough == Dough.Thin){
-            price = price;
-        }
-        if (pizza.dough == Dough.Lush){
-            price = price + 10;
-        }
-        if (pizza.dough == Dough.HotDog){
-            price = price + 20;
-        }
-
-        return price;
+        setLocalStorageFromBasket(newBasket);
+      
+        navigate('/basket');
     }
 
     return (
@@ -141,8 +123,8 @@ function PizzaMaker({ pizzas }: PizzaMakerProps) {
                             <h3><strong>Крок №2</strong> - Оберіть другу половину піци:</h3>
                         </div>
                         <div className="choosingPizza">
-                            <select className="selectName" onChange={handleChange}><option>Оберіть піцу...</option>{pizzaOptions}</select>
-                            <select className="selectName" onChange={handleChange2}><option>Оберіть піцу...</option>{pizzaOptions}</select>
+                        <select className="selectName" onChange={handleChange} value={twoHalfPizza.pizza1 ? pizzas.indexOf(twoHalfPizza.pizza1) : -1}><option value="-1">Оберіть піцу...</option>{pizzaOptions}</select>
+                        <select className="selectName" onChange={handleChange2} value={twoHalfPizza.pizza2 ? pizzas.indexOf(twoHalfPizza.pizza2) : -1}><option value="-1">Оберіть піцу...</option>{pizzaOptions}</select>
                         </div>
                     </div>
                     <div className="lineTwo">
@@ -245,7 +227,9 @@ function PizzaMaker({ pizzas }: PizzaMakerProps) {
                     </div>
                     <div className="lineFour">
                         <h1>Ціна: {getPrice(twoHalfPizza)}грн</h1>
-                        <button className="btnAddBasket">Додати в кошик</button>
+                        <button
+                        className={`btnAddBasket ${areAllOptionsSelected(twoHalfPizza) ? 'active' : ''}`} onClick={() => addBasket(twoHalfPizza)} disabled={!areAllOptionsSelected(twoHalfPizza)}>
+                        Додати в кошик</button>
                     </div>
                 </div>
             </div>

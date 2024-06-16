@@ -4,14 +4,90 @@ import './Basket.css';
 import { Pizza } from "./Main";
 import { Link } from "react-router-dom";
 import Modal from 'react-modal';
+import { Dough } from "./Main";
+import { TwoHalfPizza } from "./PizzaMaker";
+import { instanceOfPizza } from "./Main";
+import { instanceOfTwoHalfPizza } from "./PizzaMaker";
+import { Souse } from "./PizzaMaker";
+import {AnyPizza} from "./Main";
 
 interface BasketProps {
-    pizzas: Pizza[];
+    basket: (AnyPizza)[];
     clearBasket: () => void;
   }
 
-function Basket({ pizzas, clearBasket }: BasketProps) {
-    const totalPrice = pizzas.reduce((total, pizza) => total + getPrice(pizza), 0);
+  export function getPrice(pizza: AnyPizza): number {        
+    if (instanceOfPizza(pizza)) {
+        let price = pizza.price;         
+        if (pizza.cm == 25) {
+            price = price * 0.8;
+        }        
+        if (pizza.cm == 30) {
+            price = price;             
+        }
+        if (pizza.cm == 35) {
+            price = price * 1.2;        
+        }
+        if (pizza.dough == Dough.Thin){
+            price = price;
+        }
+        if (pizza.dough == Dough.Lush){
+            price = price + 10;
+        }
+        if (pizza.dough == Dough.HotDog){
+            price = price + 20;
+        }
+
+        return price;
+    }
+
+    if (instanceOfTwoHalfPizza(pizza)) {
+        if (pizza.pizza1 == null || pizza.pizza2 == null) {return 0;}
+        let price = getPrice(pizza.pizza1) / 2 + getPrice(pizza.pizza2) / 2;
+        if (pizza.souse == Souse.Ranch) {
+            price = price + 4;
+        }        
+        if (pizza.souse == Souse.Tomato) {
+            price = price + 6;             
+        }
+        if (pizza.souse == Souse.Plum) {
+            price = price + 5;        
+        }
+        if (pizza.souse == Souse.Cheese) {
+            price = price + 7;        
+        }
+        if (pizza.souse == Souse.BBQ) {
+            price = price + 7;        
+        }
+
+        if (pizza.dough == Dough.Thin){
+            price = price;
+        }
+        if (pizza.dough == Dough.Lush){
+            price = price + 10;
+        }
+        if (pizza.dough == Dough.HotDog){
+            price = price + 20;
+        }
+
+        return price;
+    }
+
+    return 0;
+}
+
+export function getBasketFromLocalStorage(): AnyPizza[] {
+    let item = localStorage.getItem("basket");
+    let basket = item != null ? JSON.parse(item) : [];
+    return basket;
+  }
+
+export function setLocalStorageFromBasket(basket: AnyPizza[]) {
+    localStorage.setItem("basket", JSON.stringify(basket));
+}
+
+function Basket({ basket, clearBasket }: BasketProps) {
+    const totalPrice = basket.reduce((total, pizza) => total + getPrice(pizza), 0);
 
     useLayoutEffect(() => {
         window.scrollTo(0, 0)
@@ -53,20 +129,8 @@ function Basket({ pizzas, clearBasket }: BasketProps) {
         alert('Замовлення оформлено');
     }
 
-    function getPrice(pizza: Pizza): number {        
-      if (pizza.cm == 25) {
-          return pizza.price * 0.8;             
-      }        
-      if (pizza.cm == 30) {
-          return pizza.price;             
-      }
-      if (pizza.cm == 35) {
-          return pizza.price * 1.2;             
-      }
-      return pizza.price;
-    }
 
-    if (pizzas.length === 0) {
+    if (basket.length === 0) {
         return (
             <div className="basket">
                 <h2>Ваш кошик</h2>
@@ -76,6 +140,8 @@ function Basket({ pizzas, clearBasket }: BasketProps) {
         );
     }
 
+
+
     return (
         <div>
             <div className="basket">
@@ -83,15 +149,29 @@ function Basket({ pizzas, clearBasket }: BasketProps) {
                 <button className="btnClearBasket" onClick={clearBasket}>Очистити</button>
 
                 <div className="mainDivBasketPizza">
-                    {pizzas?.map((pizza, index) => (
+                    {basket?.map((pizza, index) => (
+                        instanceOfPizza(pizza)?
+                            <div className="BasketPizza" key={index}>
+                                <img src={pizza.img} alt={pizza.name} />
+                                <div>
+                                    <h2 className="pizzaName">{pizza.name}</h2>
+                                    <p className="pCmDough">{pizza.cm}, {pizza.dough} тісто</p>
+                                </div>
+                                <div className="divPrise"><p>{getPrice(pizza)} грн.</p></div>
+                            </div> :
                         <div className="BasketPizza" key={index}>
-                            <img src={pizza.img} alt={pizza.name} />
+                            <div className="twoPizzasInBasket">
+                                <div className="pizzaContainer1"><img src={pizza.pizza1!.img} alt={pizza.pizza1!.name}/></div>
+                                <div className="pizzaContainer2 pizzaContainerBasket2"><img src={pizza.pizza2!.img} alt={pizza.pizza2!.name}/></div>
+                            </div>
                             <div>
-                                <h2 className="pizzaName">{pizza.name}</h2>
-                                <p className="pCmDough">{pizza.cm}, {pizza.dough} тісто</p>
+                                <h2 className="pizzaName">{pizza.pizza1!.name} та {pizza.pizza2!.name}</h2>
+                                <p className="pCmDough"> {pizza.dough} тісто</p>
+                                <p className="pCmDough"> {pizza.souse} соус</p>
                             </div>
                             <div className="divPrise"><p>{getPrice(pizza)} грн.</p></div>
-                        </div>
+                        </div> 
+                
                     ))}
                 </div>
 

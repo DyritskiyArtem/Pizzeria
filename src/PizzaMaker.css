@@ -200,8 +200,13 @@
     width: 50%;
     height: 50%;
     border-radius: 100px;
+
+    &:hover {
+      cursor: not-allowed
+    }
   }
   
-  .btnAddBasket:hover {
+  .btnAddBasket.active {
+    background-color: #7dd72a;
     cursor: pointer;
   }

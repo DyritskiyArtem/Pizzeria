@@ -3,6 +3,8 @@ import baners from "./baners.png";
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { log } from "console";
+import { TwoHalfPizza } from "./PizzaMaker"
+import {setLocalStorageFromBasket} from "./Basket";
 
 export interface Pizza {
     img: string,
@@ -13,10 +15,16 @@ export interface Pizza {
     ingredients: string[]
 }
 
+export type AnyPizza = Pizza | TwoHalfPizza;
+
+export function instanceOfPizza(object: any): object is Pizza {
+    return 'ingredients' in object;
+}
+
 interface MainProps {
     pizzas: Pizza[],
-    basket: Pizza[],
-    setBasket: (basket: Pizza[]) => void,
+    basket: (AnyPizza)[],
+    setBasket: (basket: (AnyPizza)[]) => void,
     setPizzas: React.Dispatch<React.SetStateAction<Pizza[]>>
 }
 
@@ -44,6 +52,8 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
         const newBasket = [...basket];
         newBasket.push(pizza);
         setBasket(newBasket);
+
+        setLocalStorageFromBasket(newBasket);
     }
 
     function onChangeSelect(e: React.ChangeEvent<HTMLSelectElement>, index: number) {
@@ -113,7 +123,7 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
                         <p>{pizza.ingredients.join(' • ')}</p>
                     </div>
                 )}
-            </div>
+            </div>        
         </main>
     )
 }

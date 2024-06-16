@@ -59,6 +59,20 @@
 }
 
 
+.twoPizzasInBasket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: -10px;
+  width: 150px;
+}
+
+.pizzaContainerBasket2{
+  overflow: hidden;
+  transform: rotate(180deg);
+  margin: 5px;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
