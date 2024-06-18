@@ -1,16 +1,50 @@
 .carousel{
+    margin: 5% 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .divCarousel{
-    width: 600px;
-    height: 300px;
-    overflow: hidden;
+    width: 1000px;
+    height: 500px;
+    /* overflow: hidden; */
+    display: flex;
 }
 
 .imgCarousel{
-    width: 100%;
-    height: 100%;
+    width: 1000px;
+    height: 500px;
+    flex: 0 0;
+    border-radius: 20px;
+}
+
+
+.left, .right{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    margin: 0 10px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #333;
 }

@@ -1,26 +1,39 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Carousel.css";
+import CarouselDots from "./CarouselDots";
+import { iterMessages } from "telegram/client/messages";
 
 function Carousel() {
+    const images = [
+        "/pizza/peperoni.png",
+        "/pizza/fourCheeses.png",
+        "/pizza/hawaiian.png",
+        "/pizza/pepperoni in Hawaii.png",
+    ];
+    const [navigateImg, setNavigateImg] = useState(0);
 
-    const [navigateImg, setNavigateImg] = useState<number>(0);
+    function onClickLeft() {setNavigateImg((navigateImg - 1 + images.length) % images.length);}
+    function onClickRight() {setNavigateImg((navigateImg + 1) % images.length);}
 
-    function onClickLeft() {setNavigateImg(navigateImg - 1);}
-    function onClickRight() {setNavigateImg(navigateImg + 1);}
+    function setImageByIndex(index: number) {
+        setNavigateImg(index)
+    }
 
-    return(
+    return (
         <div className="carousel">
-            <p onClick={onClickLeft}>&lt;</p>
-            <div className="divCarousel">
-                <img className="imgCarousel" src="/pizza/peperoni.png"/>
-                <img className="imgCarousel" src="/pizza/fourCheeses.png"/>
-                <img className="imgCarousel" src="/pizza/hawaiian.png"/>
-                <img className="imgCarousel" src="/pizza/pepperoni in Hawaii.png"/>
+            <div className="line1">
+                <p className="left" onClick={onClickLeft}>&lt;</p>
+                <div className="divCarousel">
+                    {images.map((item, index) => <img className="imgCarousel" src={images[index]}/>)}
+                </div>
+                <p className="right" onClick={onClickRight}>&gt;</p>
             </div>
-            <p onClick={onClickRight}>&gt;</p>
-            <p>{navigateImg}</p>
+            <div className="line2">
+                <CarouselDots currentIndex={navigateImg} totalItems={images.length} setImageByIndex={setImageByIndex}/>
+            </div>
         </div>
-    )
+    );
 }
+
 
 export default Carousel;
