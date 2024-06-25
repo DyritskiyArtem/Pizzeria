@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Carousel.css";
 import CarouselDots from "./CarouselDots";
-import { iterMessages } from "telegram/client/messages";
 
-function Carousel() {
+interface CarouselProps{
+    minWidth: number,
+    minHeight: number,
+}
+
+function Carousel({minWidth, minHeight}: CarouselProps) {
     const images = [
-        "/pizza/peperoni.png",
-        "/pizza/fourCheeses.png",
-        "/pizza/hawaiian.png",
-        "/pizza/pepperoni in Hawaii.png",
+        "/carouselImg/baner1.png",
+        "/carouselImg/baner2.png",
+        "/carouselImg/baner3.png",
+        "/carouselImg/baner4.png",
     ];
     const [navigateImg, setNavigateImg] = useState(0);
 
@@ -19,12 +23,26 @@ function Carousel() {
         setNavigateImg(index)
     }
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setNavigateImg((navigateImg + 1) % images.length);
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, [navigateImg, images.length]);
+
+
+
     return (
         <div className="carousel">
             <div className="line1">
                 <p className="left" onClick={onClickLeft}>&lt;</p>
-                <div className="divCarousel">
-                    {images.map((item, index) => <img className="imgCarousel" src={images[index]}/>)}
+            <div className="divCarousel" style={{ minWidth: minWidth + "px", minHeight: minHeight + "px"}}>
+                    {images.map((item, index) => <img className="imgCarousel" src={images[index]} style={{
+                        left: -1052 * navigateImg + "px", 
+                        minWidth: minWidth + "px",
+                        minHeight: minHeight + "px",
+                        }} key={index}/>)}
                 </div>
                 <p className="right" onClick={onClickRight}>&gt;</p>
             </div>

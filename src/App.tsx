@@ -45,7 +45,7 @@ function App() {
           <Route path="/pizzamaker" element={<PizzaMaker pizzas={pizzas} basket={basket} setBasket={setBasket}/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
-        <Carousel/>
+        <Carousel minWidth={273} minHeight={1052}/>
         <Footer/>
       </Router>
   );

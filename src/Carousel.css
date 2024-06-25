@@ -7,17 +7,16 @@
 }
 
 .divCarousel{
-    width: 1000px;
-    height: 500px;
-    /* overflow: hidden; */
+    overflow: hidden;
     display: flex;
+    border-radius: 20px;
 }
 
 .imgCarousel{
-    width: 1000px;
-    height: 500px;
+    position: relative;
     flex: 0 0;
     border-radius: 20px;
+    transition: left linear 0.5s;
 }
 
 
@@ -28,6 +27,9 @@
     align-items: center;
     font-size: 50px;
     margin: 0 10px;
+    user-select: none;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
 }
 
 .carousel-dots {
