@@ -1,5 +1,7 @@
 body{background-color: #f5f5f5}
 
+html{scroll-behavior: smooth;}
+
 
 header {
   display: flex;
@@ -218,6 +220,11 @@ footer{
 .div1{
   display: flex;
   gap: 100px;
+}
+
+.linkFooter{
+  color: #fff;
+  text-decoration: none;
 }
 
 .socialNetworks{

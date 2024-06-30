@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { log } from "console";
 import { TwoHalfPizza } from "./PizzaMaker"
 import {setLocalStorageFromBasket} from "./Basket";
+import Carousel from "./Carousel";
 
 export interface Pizza {
     img: string,
@@ -42,9 +43,9 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
         </option>
     ));
 
-    // useLayoutEffect(() => {
-    //     window.scrollTo(0, 0)
-    // });
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
 
     function addBasket(pizza: Pizza) {
         console.log(pizza);
@@ -123,7 +124,8 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
                         <p>{pizza.ingredients.join(' • ')}</p>
                     </div>
                 )}
-            </div>        
+            </div>
+            <Carousel minWidth={1052} minHeight={273} images={["/carouselImg/baner1.png", "/carouselImg/baner2.png", "/carouselImg/baner3.png", "/carouselImg/baner4.png"]} dots={true} autoScroll={true}/>  
         </main>
     )
 }

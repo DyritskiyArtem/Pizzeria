@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useLayoutEffect} from "react";
 import { useNavigate } from 'react-router-dom';
 import './PizzaMaker.css';
 import './App.css';
@@ -7,6 +7,7 @@ import { Dough } from './Main';
 import { getPrice } from './Basket';
 import {AnyPizza} from "./Main";
 import {setLocalStorageFromBasket} from "./Basket";
+import Carousel from "./Carousel";
 
 interface PizzaMakerProps { 
     pizzas: Pizza[],
@@ -98,9 +99,13 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
         navigate('/basket');
     }
 
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    });
+
     return (
 
-
+    <>
         <div className="mainPizzaMakers">
             <h1>Дві улюблених в одній піці</h1>
             <div>
@@ -234,6 +239,8 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                 </div>
             </div>
         </div>
+        <Carousel minWidth={1052} minHeight={273} images={["/carouselImg/baner1.png", "/carouselImg/baner2.png", "/carouselImg/baner3.png", "/carouselImg/baner4.png"]} dots={true} autoScroll={true}/>
+    </>
     )
 };
 

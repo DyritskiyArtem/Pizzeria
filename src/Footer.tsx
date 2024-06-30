@@ -1,15 +1,16 @@
 import React from "react";
 import './App.css';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 function Footer() {
     return(
         <footer>
             <div className="menu">
                 <div className="div1">
-                    <p>Меню</p>
-                    <p>Конструктор піци</p>
+                    <Link className="linkFooter" to={'/'}><p>Меню</p></Link>
+                    <Link className="linkFooter" to={'/pizzaMaker'}><p>Конструктор піци</p></Link>
                 </div>
-                <div className="div2"><p>Про компанію</p></div>
+                <div className="div2"><Link className="linkFooter" to={'/aboutCompany'}><p>Про компанію</p></Link></div>
             </div>
             <div className="socialNetworks">
                 <p className="pSocialNetworks"><img src="./socialNetworks/Viber.svg" alt="Viber"/>Viber</p>

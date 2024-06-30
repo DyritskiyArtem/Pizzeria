@@ -5,53 +5,62 @@ import CarouselDots from "./CarouselDots";
 interface CarouselProps{
     minWidth: number,
     minHeight: number,
+    images: string[],
+    dots: boolean,
+    autoScroll: boolean,
 }
 
-function Carousel({minWidth, minHeight}: CarouselProps) {
-    const images = [
-        "/carouselImg/baner1.png",
-        "/carouselImg/baner2.png",
-        "/carouselImg/baner3.png",
-        "/carouselImg/baner4.png",
-    ];
+function Carousel({minWidth, minHeight, images, dots = true, autoScroll = true}: CarouselProps) {
     const [navigateImg, setNavigateImg] = useState(0);
 
-    function onClickLeft() {setNavigateImg((navigateImg - 1 + images.length) % images.length);}
-    function onClickRight() {setNavigateImg((navigateImg + 1) % images.length);}
+    function onClickLeft() {
+        setNavigateImg((navigateImg - 1 + images.length) % images.length);
+    }
+
+    function onClickRight() {
+        setNavigateImg((navigateImg + 1) % images.length);
+    }
 
     function setImageByIndex(index: number) {
-        setNavigateImg(index)
+        setNavigateImg(index);
     }
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setNavigateImg((navigateImg + 1) % images.length);
-        }, 3000);
-
-        return () => clearInterval(interval);
-    }, [navigateImg, images.length]);
-
-
+        let interval: NodeJS.Timeout;
+        if (autoScroll) {
+            interval = setInterval(() => {
+                setNavigateImg((navigateImg + 1) % images.length);
+            }, 3000);
+        }
+        return () => {
+            if (interval) clearInterval(interval);
+        };
+    }, [navigateImg, images.length, autoScroll]);
 
     return (
         <div className="carousel">
             <div className="line1">
                 <p className="left" onClick={onClickLeft}>&lt;</p>
-            <div className="divCarousel" style={{ minWidth: minWidth + "px", minHeight: minHeight + "px"}}>
-                    {images.map((item, index) => <img className="imgCarousel" src={images[index]} style={{
-                        left: -1052 * navigateImg + "px", 
-                        minWidth: minWidth + "px",
-                        minHeight: minHeight + "px",
-                        }} key={index}/>)}
+                <div className="divCarousel" style={{ width: minWidth + "px", height: minHeight + "px"}}>
+                    {images.map((item, index) => (
+                        <img className="imgCarousel" src={images[index]} style={{
+                                left: -minWidth * navigateImg + "px", 
+                                minWidth: minWidth + "px",
+                                minHeight: minHeight + "px",
+                            }} key={index} alt={`Carousel image ${index + 1}`}
+                        />
+                    ))}
                 </div>
                 <p className="right" onClick={onClickRight}>&gt;</p>
             </div>
             <div className="line2">
-                <CarouselDots currentIndex={navigateImg} totalItems={images.length} setImageByIndex={setImageByIndex}/>
+                {dots ? ( 
+                    <CarouselDots currentIndex={navigateImg} totalItems={images.length} setImageByIndex={setImageByIndex}/>
+                ) :
+                <></>}
             </div>
         </div>
     );
 }
-
 
 export default Carousel;

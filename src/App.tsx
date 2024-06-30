@@ -12,6 +12,7 @@ import { TwoHalfPizza } from "./PizzaMaker";
 import {AnyPizza} from "./Main";
 import {getBasketFromLocalStorage} from "./Basket";
 import Carousel from './Carousel';
+import AboutCompany from './AboutCompany'; 
 
 function App() {
   const [pizzas, setPizzas] = useState<Pizza[]>([]);
@@ -43,9 +44,9 @@ function App() {
         <Route path="/" element={<Main pizzas={pizzas} basket={basket} setBasket={setBasket} setPizzas={setPizzas}/>}/>
           <Route path="/basket" element={<Basket basket={basket} clearBasket={clearBasket}/>}/>
           <Route path="/pizzamaker" element={<PizzaMaker pizzas={pizzas} basket={basket} setBasket={setBasket}/>}/>
+          <Route path="/aboutCompany" element={<AboutCompany/>}/>
           <Route path='*' element={<NotFound/>}/>
         </Routes>
-        <Carousel minWidth={273} minHeight={1052}/>
         <Footer/>
       </Router>
   );
