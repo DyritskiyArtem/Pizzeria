@@ -1,0 +1,59 @@
+@media (max-width: 1029px){
+    footer{
+      padding: 2% 5%;
+    }
+    .socialNetworks{
+      gap: 13.1%;
+    }
+  }
+  
+  @media (max-width: 974px){
+    header {padding: 1px 30px}
+
+    .BasketPizza .divPrise {
+        margin: 0 0 20% 50%;
+    }
+  }
+  
+  @media (max-width: 938px){
+    .socialNetworks{
+      gap: 11.1%;
+    }
+  }
+  
+  @media (max-width: 811px){
+    .socialNetworks{
+      gap: 10%;
+    }
+  
+    footer{
+      padding: 2% 2%;
+    }
+  }
+  
+  @media (max-width: 770px){
+    .phoneNumber{display: none;}
+  }
+  
+  @media (max-width: 754px){
+    .socialNetworks{
+      display: flex;
+      gap: 56%;
+    }
+  
+    footer{
+      padding: 2% 10%;
+    }
+  }
+  
+  @media (max-width: 559px){
+    .div2{display: none;}
+    .div2Media{display: block;}
+  
+    .div1{gap: 170%; text-align: right;}
+  }
+  
+  @media (max-width: 511px){
+    header {padding: 1px 10px}
+    .logo{display: none;}
+  }

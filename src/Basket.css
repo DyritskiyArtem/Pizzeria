@@ -238,3 +238,26 @@
   align-self: center;
   width: 50%;
 }
+
+
+@media (max-width: 974px){
+  .BasketPizza .divPrise {
+      margin: 0 0 2% 61%;
+  }
+}
+
+@media (max-width: 700px){
+  .BasketPizza{
+    display: flex;
+    flex-direction: column;
+
+    & img {
+      width: 200px;
+      height: 200px;
+  }
+  }
+
+  .BasketPizza .divPrise {
+      margin: 0 0 2% 61%;
+  }
+}

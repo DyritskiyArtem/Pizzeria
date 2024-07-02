@@ -1,4 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
+import './media.css';
 import './App.css';
 import './Basket.css';
 import { Pizza } from "./Main";

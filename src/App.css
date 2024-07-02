@@ -72,6 +72,11 @@ nav button {
   align-items: flex-start;
 }
 
+.header-left a{
+  color: #000;
+  text-decoration: none;
+}
+
 .slogon{
   font-weight: 200;
   font-size: 13px;
@@ -221,6 +226,8 @@ footer{
   display: flex;
   gap: 100px;
 }
+
+.div2Media{display: none;}
 
 .linkFooter{
   color: #fff;
