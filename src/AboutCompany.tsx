@@ -22,7 +22,7 @@ function AboutCompany() {
                 
                 <p>З його смачними пропозиціями, дружньою атмосферою та відданістю якості та спільноті My Pizza – це не просто місце, де можна поїсти, це місце, де можна залишити незабутні спогади.</p>
             </div>
-            <Carousel minWidth={1062} minHeight={522} images={["/imgAboutCompany/baner1.png", "/imgAboutCompany/baner2.png", "/imgAboutCompany/baner3.png"]} dots={false} autoScroll={false}></Carousel>
+            <Carousel minWidth={1062} minHeight={522} images={["/imgAboutCompany/baner1.png", "/imgAboutCompany/baner2.png", "/imgAboutCompany/baner3.png"]} dots={false} autoScroll={false} left={true} right={true}></Carousel>
         </div>
     )
 }

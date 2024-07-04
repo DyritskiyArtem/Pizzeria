@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
 import baners from "./baners.png";
+import banersMedia from "./banersMedia.png";
 import './App.css';
 import './media.css';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { log } from "console";
 import { TwoHalfPizza } from "./PizzaMaker"
 import {setLocalStorageFromBasket} from "./Basket";
-import Carousel from "./Carousel";
+import PizzaBanner from "./PizzaBanner";
 
 export interface Pizza {
     img: string,
@@ -100,17 +101,12 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
         return price;
     }
 
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-useEffect(() => {
-  window.addEventListener("resize", function() { setScreenWidth(window.innerWidth) })
-}, []);
-
     return (
         <main>
             <div className="title">
                 <h1>Меню</h1>
-                <Link to={'/pizzamaker'}><img src={baners}/></Link>
+                <Link to={'/pizzamaker'}><img className="baners" src={baners}/></Link>
+                <Link to={'/pizzamaker'}><img className="banersMedia" src={banersMedia}/></Link>
             </div>
 
             <div className="divPizza">
@@ -132,11 +128,7 @@ useEffect(() => {
                     </div>
                 )}
             </div>
-            {screenWidth <= 700 ?
-                <Carousel minWidth={1052} minHeight={273} images={["/carouselImg/baner1.png", "/carouselImg/baner2.png", "/carouselImg/baner3.png", "/carouselImg/baner4.png"]} dots={true} autoScroll={true}/> :
-                <Carousel minWidth={10} minHeight={273} images={["/carouselImg/baner1.png", "/carouselImg/baner2.png", "/carouselImg/baner3.png", "/carouselImg/baner4.png"]} dots={true} autoScroll={true}/>
-            }
-            {screenWidth}
+            <PizzaBanner/>
         </main>
     )
 }

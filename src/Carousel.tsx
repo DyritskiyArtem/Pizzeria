@@ -8,9 +8,11 @@ interface CarouselProps{
     images: string[],
     dots: boolean,
     autoScroll: boolean,
+    left: boolean,
+    right: boolean
 }
 
-function Carousel({minWidth, minHeight, images, dots = true, autoScroll = true}: CarouselProps) {
+function Carousel({minWidth, minHeight, images, dots, autoScroll , left, right}: CarouselProps) {
     const [navigateImg, setNavigateImg] = useState(0);
 
     function onClickLeft() {
@@ -40,7 +42,10 @@ function Carousel({minWidth, minHeight, images, dots = true, autoScroll = true}:
     return (
         <div className="carousel">
             <div className="line1">
-                <p className="left" onClick={onClickLeft}>&lt;</p>
+                {left ? (
+                    <p className="left" onClick={onClickLeft}>&lt;</p>
+                ) :
+                <></>}
                 <div className="divCarousel" style={{ width: minWidth + "px", height: minHeight + "px"}}>
                     {images.map((item, index) => (
                         <img className="imgCarousel" src={images[index]} style={{
@@ -51,7 +56,10 @@ function Carousel({minWidth, minHeight, images, dots = true, autoScroll = true}:
                         />
                     ))}
                 </div>
-                <p className="right" onClick={onClickRight}>&gt;</p>
+                {right ? (
+                    <p className="right" onClick={onClickRight}>&gt;</p>
+                ) :
+                <></>}
             </div>
             <div className="line2">
                 {dots ? ( 

@@ -103,6 +103,8 @@ nav button {
   font-size: 50px;
 }
 
+.banersMedia{display: none;}
+
 .divPizza {
   display: flex;
   flex-wrap: wrap;

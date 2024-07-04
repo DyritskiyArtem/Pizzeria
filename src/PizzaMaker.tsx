@@ -7,7 +7,7 @@ import { Dough } from './Main';
 import { getPrice } from './Basket';
 import {AnyPizza} from "./Main";
 import {setLocalStorageFromBasket} from "./Basket";
-import Carousel from "./Carousel";
+import PizzaBanner from "./PizzaBanner";
 
 interface PizzaMakerProps { 
     pizzas: Pizza[],
@@ -99,9 +99,9 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
         navigate('/basket');
     }
 
-    useLayoutEffect(() => {
-        window.scrollTo(0, 0)
-    });
+    // useLayoutEffect(() => {
+    //     window.scrollTo(0, 0)
+    // });
 
     return (
 
@@ -136,6 +136,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                         <h3><strong>Крок №3</strong> - Оберіть спільний соус - основу:</h3>
 
                         <div className="divFilling">
+                            <div className="column1"></div>
                         <div className="filling" onClick={() => addSouse(Souse.Ranch)}>
                             <div className="divCirclePizza"><div className="circlePizza"></div></div>
                             <div className="content">
@@ -239,7 +240,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                 </div>
             </div>
         </div>
-        <Carousel minWidth={1052} minHeight={273} images={["/carouselImg/baner1.png", "/carouselImg/baner2.png", "/carouselImg/baner3.png", "/carouselImg/baner4.png"]} dots={true} autoScroll={true}/>
+        <PizzaBanner/>
     </>
     )
 };

@@ -97,6 +97,8 @@
     text-decoration: underline;
 }
 
+.priceGrnMedia{display: none;}
+
 .emptyBasket{
   text-align: center;
   font-size: 30px;
@@ -260,4 +262,22 @@
   .BasketPizza .divPrise {
       margin: 0 0 2% 61%;
   }
+
+  .btnClearBasket{margin: 2% 42.4%;}
+
+  .BasketPizza .divPrise{   
+    position: relative;
+    margin: 0 0 2% 0%;
+  }
+
+  .buttons{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+@media (max-width: 507px){
+  .priceGrn{display: none;}
+  .priceGrnMedia{display: block;}
 }

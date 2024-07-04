@@ -3,14 +3,14 @@ import './media.css';
 import './App.css';
 import './Basket.css';
 import { Pizza } from "./Main";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
 import { Dough } from "./Main";
 import { TwoHalfPizza } from "./PizzaMaker";
 import { instanceOfPizza } from "./Main";
 import { instanceOfTwoHalfPizza } from "./PizzaMaker";
 import { Souse } from "./PizzaMaker";
-import {AnyPizza} from "./Main";
+import { AnyPizza } from "./Main";
 
 interface BasketProps {
     basket: (AnyPizza)[];
@@ -88,6 +88,7 @@ export function setLocalStorageFromBasket(basket: AnyPizza[]) {
 }
 
 function Basket({ basket, clearBasket }: BasketProps) {
+    const navigate = useNavigate();
     const totalPrice = basket.reduce((total, pizza) => total + getPrice(pizza), 0);
 
     useLayoutEffect(() => {
@@ -116,18 +117,19 @@ function Basket({ basket, clearBasket }: BasketProps) {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+    
         if (formData.name.length < 3) {
             alert("Ім'я має містити мінімум 3 символів");
             return;
         }
-
+    
         if (formData.address.length < 6) {
             alert("Адреса має містити мінімум 6 символів");
             return;
         }
-
+    
         alert('Замовлення оформлено');
+        navigate('/');
     }
 
 
@@ -140,8 +142,6 @@ function Basket({ basket, clearBasket }: BasketProps) {
             </div>
         );
     }
-
-
 
     return (
         <div>
@@ -158,7 +158,7 @@ function Basket({ basket, clearBasket }: BasketProps) {
                                     <h2 className="pizzaName">{pizza.name}</h2>
                                     <p className="pCmDough">{pizza.cm}, {pizza.dough} тісто</p>
                                 </div>
-                                <div className="divPrise"><p>{getPrice(pizza)} грн.</p></div>
+                                <div className="divPrise divPrise1"><p>{getPrice(pizza)} грн.</p></div>
                             </div> :
                         <div className="BasketPizza" key={index}>
                             <div className="twoPizzasInBasket">
@@ -179,7 +179,8 @@ function Basket({ basket, clearBasket }: BasketProps) {
                 <div className="buttons">
                     <Link to="/"><a className="aMenu">Повернутися до меню</a></Link>
                     <div>
-                        <p>До сплати: {totalPrice} грн.</p>
+                        <p className="priceGrn">До сплати: {totalPrice} грн.</p>
+                        <p className="priceGrnMedia">{totalPrice} грн.</p>
                         <button onClick={handleOpenModal}>ЗРОБИТИ ЗАМОВЛЕННЯ</button>
                     </div>
                 </div>

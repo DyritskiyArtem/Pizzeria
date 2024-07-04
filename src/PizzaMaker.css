@@ -210,3 +210,22 @@
     background-color: #7dd72a;
     cursor: pointer;
   }
+
+
+  @media (max-width: 1050px){
+    .mainPizzaMakers {padding: 0 5%;}
+  }
+
+
+  @media (max-width: 1000px){
+    .mainPizzaMakers {padding: 0 2%;}
+  }
+
+
+  @media (max-width: 932px){
+    .mainPizzaMakers {width: 800px;}
+  }
+
+  @media (max-width: 838px){
+    .mainPizzaMakers {width: 650px;}
+  }

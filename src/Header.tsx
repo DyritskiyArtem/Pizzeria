@@ -8,8 +8,8 @@ function Header() {
     return (
         <header>
             <div className="header-left"> 
+                <Link to="/"><img className="logo" src={logo} alt="Logo"/></Link>
                 <Link to="/">
-                    <img className="logo" src={logo} alt="Logo"/>
                     <h1 className="logoH1">
                         MY PIZZA™
                         <p className="slogon">Безкоштовна доставка</p>
