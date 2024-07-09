@@ -1,0 +1,14 @@
+{
+    "name": "Dyritskiy Pizza",
+    "short_name": "Dyritskiy Pizza",
+    "icons": [
+        {
+            "src": "/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#e98010",
+    "background_color": "#e98010",
+    "display": "standalone"
+}

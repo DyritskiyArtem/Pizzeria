@@ -45,13 +45,9 @@
   
   .divMaking {
     background-color: #FFFAF4;
-    height: 550px;
     display: flex;
     flex-direction: column;
     gap: 8%;
-  }
-  
-  .divMaking {
     padding: 10px 40px;
   }
   
@@ -74,7 +70,7 @@
   }
   
   .selectName {
-    width: 382px;
+    width: 110%;
     height: 40px;
     border: none;
     background-color: #F6ECE0;
@@ -83,7 +79,14 @@
   
   .choosingPizza {
     display: flex;
+    flex-direction: column;
     gap: 3%;
+  }
+
+  .lineOne{
+    display: flex;
+    flex-direction: row;
+    gap: 6%;
   }
   
   h3 {
@@ -92,20 +95,28 @@
   
   .divFilling {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 15px;
+  }
+
+  .column1,
+  .column2{
+    display: flex;
+    flex-direction: row;
     gap: 2%;
+    width: 40%;
   }
   
   .filling {
     display: flex;
     align-items: center;
     background-color: #F6ECE0;
-    width: 200px;
+    width: 150px;
     height: 42px;
   }
   
   .filling2 {
-    width: 500px;
     height: 42px;
   }
   
@@ -113,6 +124,9 @@
     font-size: 10px;
     color: #8F795F;
   }
+
+  .plumSouseMedia{display: none;}
+  .bbqSouseMedia{display: none;}
   
   .divCirclePizza {
     background-color: #ede0d0;
@@ -198,7 +212,7 @@
     color: #fff;
     border: none;
     width: 50%;
-    height: 50%;
+    height: 30px;
     border-radius: 100px;
 
     &:hover {
@@ -226,6 +240,126 @@
     .mainPizzaMakers {width: 800px;}
   }
 
+
   @media (max-width: 838px){
     .mainPizzaMakers {width: 650px;}
+
+    .column1,
+    .column2{flex-direction: column;}
+
+  }
+
+
+  @media (max-width: 700px){
+    .mainPizzaMakers {width: 600px;}
+
+    .filling {
+      width: 150px;
+    } 
+
+    .mainPizzaMakers h1 {
+      text-align: center;
+    }
+
+    .halfPizza{width: 30%;}
+  }
+
+
+  @media (max-width: 657px){
+    .mainPizzaMakers {width: 500px}
+
+    .halfPizza{width: 35%;}
+
+    .pizzaContainer1,
+    .pizzaContainer2 {
+      width: 230px;
+    }
+    
+    .imgPizza1{width: 460px;}
+
+    .imgPizza2 {
+      width: 460px;
+      right: 230px;
+    }
+  }
+
+
+  @media (max-width: 540px){
+    .mainPizzaMakers {padding: 0}
+
+    .lineOne{ display: flex; flex-direction: column;}
+
+
+    .selectName {
+      width: 100%;
+    }
+    
+  }
+
+
+  @media (max-width: 500px){
+    .mainPizzaMakers {width: 450px;}
+
+
+    .divFilling {
+      display: flex;
+      justify-content: left;
+      gap: 20px;      
+    }
+
+    .column1,
+    .column2{
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      gap: 5%;
+      width: 100%;
+    }
+
+    .halfPizza{width: 46%;}
+  }
+
+
+  @media (max-width: 460px){
+    .mainPizzaMakers {width: 400px;}
+
+
+    .column1{margin: 0 6%;}
+
+    .lineFour{
+      flex-direction: column;
+    }
+
+    .btnAddBasket{height: 30px;}
+
+    
+    .pizzaContainer1,
+    .pizzaContainer2 {
+      width: 200px;
+    }
+    
+    .imgPizza1{width: 400px;}
+
+    .imgPizza2 {
+      width: 400px;
+      right: 200px;
+    }
+  }
+
+  @media (max-width: 392px){
+    .mainPizzaMakers {width: 350px;}
+
+    .halfPizza{width: 46%;}
+
+    .pizzaContainer1,
+    .pizzaContainer2 {
+      width: 150px;
+    }
+    
+    .imgPizza1{width: 300px;}
+
+    .imgPizza2 {
+      width: 300px;
+      right: 150px;
+    }
   }

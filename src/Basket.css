@@ -58,7 +58,6 @@
     font-weight: bold;
 }
 
-
 .twoPizzasInBasket {
   display: flex;
   justify-content: center;
@@ -193,10 +192,12 @@
   margin-bottom: 20px;
 }
 
-.Modal-header h2{
-  margin: -1% 21.1%;
+.Modal-title{
+  margin: -1% 21.1%;;
   font-weight: 400;
   font-size: 30px;
+  width: 100%;
+  text-align: center;
 }
 
 .Modal-close {
@@ -248,6 +249,17 @@
   }
 }
 
+
+@media (max-width: 847px){
+  .nameAndPhone {display: flex; flex-direction: column;}
+  #name,
+  #phone{
+    width: 136%;
+  }
+  .Modal-content label{display: none;}
+}
+
+
 @media (max-width: 700px){
   .BasketPizza{
     display: flex;
@@ -260,10 +272,11 @@
   }
 
   .BasketPizza .divPrise {
-      margin: 0 0 2% 61%;
+      width: 100%;
+      text-align: center;
   }
 
-  .btnClearBasket{margin: 2% 42.4%;}
+  .btnClearBasket{margin: 2% 35%;}
 
   .BasketPizza .divPrise{   
     position: relative;
@@ -274,10 +287,35 @@
     display: flex;
     flex-direction: column;
   }
+
+  .pCmDough{
+    width: 100%;
+    text-align: center;
+  }
+
+  .twoPizzasInBasket {
+    width: 200px;
+  }
+
+  .priceGrnMedia{
+    margin: 4% 0;
+  }
 }
 
 
 @media (max-width: 507px){
   .priceGrn{display: none;}
   .priceGrnMedia{display: block;}
+}
+
+
+@media (max-width: 367px){
+  .Modal-close {
+    margin-bottom: 20%;
+  }
+}
+
+
+@media (max-width: 382px){
+  .buttons div{ display: flex; flex-direction: column; margin: 5% 0;}
 }
