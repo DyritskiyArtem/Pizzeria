@@ -141,7 +141,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Ranch}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Ranch} onChange={() => {}}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -152,7 +152,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza circlePizza2"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Tomato}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Tomato} onChange={() => {}}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -165,7 +165,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza circlePizza3"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Plum}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Plum} onChange={() => {}}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -176,7 +176,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza circlePizza4"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Cheese}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Cheese} onChange={() => {}}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -190,7 +190,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza circlePizza5"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.BBQ}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.BBQ} onChange={() => {}}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -208,7 +208,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><img src="/PizzaMaker/thin.png" alt="thin"/></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough === Dough.Thin}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough === Dough.Thin} onChange={() => {}}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -219,7 +219,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><img src="/PizzaMaker/lush.png" alt="lush"/></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough === Dough.Lush}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough === Dough.Lush} onChange={() => {}}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -230,7 +230,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><img src="/PizzaMaker/HotDog.png" alt="Hot-dog"/></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough === Dough.HotDog}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough === Dough.HotDog} onChange={() => {}}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>

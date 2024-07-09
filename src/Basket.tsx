@@ -184,7 +184,7 @@ function Basket({ basket, clearBasket }: BasketProps) {
                 </div>
             </div>
 
-        <Modal isOpen={isModalOpen} onRequestClose={handleCloseModal} className="Modal" overlayClassName="Overlay" contentLabel="Оформлення замовлення">
+        <Modal ariaHideApp={false} isOpen={isModalOpen} onRequestClose={handleCloseModal} className="Modal" overlayClassName="Overlay" contentLabel="Оформлення замовлення">
             <div className="Modal-header">
               <h2 className="Modal-title">Оформлення замовлення</h2>
               <span className="Modal-close" onClick={handleCloseModal}>&times;</span>
