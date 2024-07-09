@@ -54,6 +54,7 @@
   .lineOne {
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
   }
   
   .lineFour {
@@ -98,6 +99,7 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 15px;
+    margin-bottom: 30px;
   }
 
   .column1,
@@ -350,6 +352,8 @@
     .mainPizzaMakers {width: 350px;}
 
     .halfPizza{width: 46%;}
+
+    .divMaking{padding: 0 10px;}
 
     .pizzaContainer1,
     .pizzaContainer2 {

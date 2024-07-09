@@ -239,7 +239,14 @@ footer{
 .socialNetworks{
   display: flex;
   align-items: center;
-  gap: 14.2%;
+  gap: 150px;
+}
+
+.divSocialNetworks1,
+.divSocialNetworks2{
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
 }
 
 .pSocialNetworks{

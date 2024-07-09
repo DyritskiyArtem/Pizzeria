@@ -2,8 +2,14 @@
     footer{
       padding: 2% 5%;
     }
+    
+    .divSocialNetworks1,
+    .divSocialNetworks2{
+        gap: 100px;
+    }
+
     .socialNetworks{
-      gap: 13.1%;
+        gap: 100px;
     }
   }
   
@@ -16,8 +22,13 @@
   }
   
   @media (max-width: 938px){
+    .divSocialNetworks1,
+    .divSocialNetworks2{
+        gap: 70px;
+    }
+
     .socialNetworks{
-      gap: 11.1%;
+      gap: 70px;
     }
   }
 
@@ -41,8 +52,13 @@
   }
   
   @media (max-width: 754px){
+    .divSocialNetworks1,
+    .divSocialNetworks2{
+        flex-direction: column;
+        gap: 0;
+    }
+
     .socialNetworks{
-      display: flex;
       gap: 56%;
     }
   

@@ -276,9 +276,9 @@
       text-align: center;
   }
 
-  .btnClearBasket{margin: 2% 35%;}
+  .btnClearBasket{margin: 2% 40%;}
 
-  .BasketPizza .divPrise{   
+  .BasketPizza .divPrise{
     position: relative;
     margin: 0 0 2% 0%;
   }
@@ -309,9 +309,36 @@
 }
 
 
-@media (max-width: 367px){
+@media (max-width: 460px) {
   .Modal-close {
-    margin-bottom: 20%;
+    font-size: 60px;
+    margin-top: -3%;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .Modal-title {
+    margin: 0;
+    padding: 30px 0;
+    font-size: 25px;
+  }
+
+  .Modal-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .Modal-content {
+    padding: 0 15px;
+  }
+}
+
+
+@media (max-width: 367px){
+
+  .Modal-title {
+    padding: 10px 0;
   }
 }
 

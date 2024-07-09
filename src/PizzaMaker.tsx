@@ -238,13 +238,13 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                 </div>                                          
                     </div>
                     </div>
-                </div>
                     <div className="lineFour">
                         <h1>Ціна: {getPrice(twoHalfPizza)}грн</h1>
                         <button
                         className={`btnAddBasket ${areAllOptionsSelected(twoHalfPizza) ? 'active' : ''}`} onClick={() => addBasket(twoHalfPizza)} disabled={!areAllOptionsSelected(twoHalfPizza)}>
                         Додати в кошик</button>
                     </div>
+                </div>
             </div>
         </div>
         <PizzaBanner/>
