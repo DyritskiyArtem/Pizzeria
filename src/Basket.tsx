@@ -2,11 +2,9 @@ import React, { useState, useLayoutEffect } from "react";
 import './media.css';
 import './App.css';
 import './Basket.css';
-import { Pizza } from "./Main";
 import { Link, useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
 import { Dough } from "./Main";
-import { TwoHalfPizza } from "./PizzaMaker";
 import { instanceOfPizza } from "./Main";
 import { instanceOfTwoHalfPizza } from "./PizzaMaker";
 import { Souse } from "./PizzaMaker";
@@ -20,22 +18,22 @@ interface BasketProps {
   export function getPrice(pizza: AnyPizza): number {        
     if (instanceOfPizza(pizza)) {
         let price = pizza.price;         
-        if (pizza.cm == 25) {
+        if (pizza.cm === 25) {
             price = price * 0.8;
         }        
-        if (pizza.cm == 30) {
-            price = price;             
+        if (pizza.cm === 30) {
+            
         }
-        if (pizza.cm == 35) {
+        if (pizza.cm === 35) {
             price = price * 1.2;        
         }
-        if (pizza.dough == Dough.Thin){
-            price = price;
+        if (pizza.dough === Dough.Thin){
+            
         }
-        if (pizza.dough == Dough.Lush){
+        if (pizza.dough === Dough.Lush){
             price = price + 10;
         }
-        if (pizza.dough == Dough.HotDog){
+        if (pizza.dough === Dough.HotDog){
             price = price + 20;
         }
 
@@ -45,29 +43,29 @@ interface BasketProps {
     if (instanceOfTwoHalfPizza(pizza)) {
         if (pizza.pizza1 == null || pizza.pizza2 == null) {return 0;}
         let price = getPrice(pizza.pizza1) / 2 + getPrice(pizza.pizza2) / 2;
-        if (pizza.souse == Souse.Ranch) {
+        if (pizza.souse === Souse.Ranch) {
             price = price + 4;
         }        
-        if (pizza.souse == Souse.Tomato) {
+        if (pizza.souse === Souse.Tomato) {
             price = price + 6;             
         }
-        if (pizza.souse == Souse.Plum) {
+        if (pizza.souse === Souse.Plum) {
             price = price + 5;        
         }
-        if (pizza.souse == Souse.Cheese) {
+        if (pizza.souse === Souse.Cheese) {
             price = price + 7;        
         }
-        if (pizza.souse == Souse.BBQ) {
+        if (pizza.souse === Souse.BBQ) {
             price = price + 7;        
         }
 
-        if (pizza.dough == Dough.Thin){
-            price = price;
+        if (pizza.dough === Dough.Thin){
+
         }
-        if (pizza.dough == Dough.Lush){
+        if (pizza.dough === Dough.Lush){
             price = price + 10;
         }
-        if (pizza.dough == Dough.HotDog){
+        if (pizza.dough === Dough.HotDog){
             price = price + 20;
         }
 
@@ -138,7 +136,7 @@ function Basket({ basket, clearBasket }: BasketProps) {
             <div className="basket">
                 <h2>Ваш кошик</h2>
                 <p className="emptyBasket">Ваша корзина порожня. Поверніться до меню та виберіть піцу</p>
-                <Link to="/"><a className="aMenu2">Повернутися до меню</a></Link>
+                <Link to="/"><p className="aMenu2">Повернутися до меню</p></Link>
             </div>
         );
     }
@@ -177,7 +175,7 @@ function Basket({ basket, clearBasket }: BasketProps) {
                 </div>
 
                 <div className="buttons">
-                    <Link to="/"><a className="aMenu">Повернутися до меню</a></Link>
+                    <Link to="/"><p className="aMenu">Повернутися до меню</p></Link>
                     <div>
                         <p className="priceGrn">До сплати: {totalPrice} грн.</p>
                         <p className="priceGrnMedia">{totalPrice} грн.</p>

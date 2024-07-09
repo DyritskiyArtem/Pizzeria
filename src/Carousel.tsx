@@ -52,7 +52,7 @@ function Carousel({minWidth, minHeight, images, dots, autoScroll , left, right}:
                                 left: -minWidth * navigateImg + "px", 
                                 minWidth: minWidth + "px",
                                 minHeight: minHeight + "px",
-                            }} key={index} alt={`Carousel image ${index + 1}`}
+                            }} key={index} alt={`Carousel ${index + 1}`}
                         />
                     ))}
                 </div>

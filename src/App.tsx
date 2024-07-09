@@ -5,13 +5,11 @@ import Main from './Main';
 import Footer from './Footer';
 import Basket from './Basket';
 import NotFound from './NotFound';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {Pizza} from './Main';
 import PizzaMaker from "./PizzaMaker"
-import { TwoHalfPizza } from "./PizzaMaker";
 import {AnyPizza} from "./Main";
 import {getBasketFromLocalStorage} from "./Basket";
-import Carousel from './Carousel';
 import AboutCompany from './AboutCompany'; 
 
 function App() {

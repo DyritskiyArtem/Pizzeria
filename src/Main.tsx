@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React from "react";
 import baners from "./baners.png";
 import banersMedia from "./banersMedia.png";
 import './App.css';
 import './media.css';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { log } from "console";
+import {Link} from 'react-router-dom';
 import { TwoHalfPizza } from "./PizzaMaker"
 import {setLocalStorageFromBasket} from "./Basket";
 import PizzaBanner from "./PizzaBanner";
@@ -79,22 +78,22 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
 
     function getPrice(pizza: Pizza): number {        
         let price = pizza.price;        
-        if (pizza.cm == 25) {
+        if (pizza.cm === 25) {
             price = price * 0.8;
         }        
-        if (pizza.cm == 30) {
-            price = price;             
+        if (pizza.cm === 30) {
+                     
         }
-        if (pizza.cm == 35) {
+        if (pizza.cm === 35) {
             price = price * 1.2;        
         }
-        if (pizza.dough == Dough.Thin){
-            price = price;
+        if (pizza.dough === Dough.Thin){
+            
         }
-        if (pizza.dough == Dough.Lush){
+        if (pizza.dough === Dough.Lush){
             price = price + 10;
         }
-        if (pizza.dough == Dough.HotDog){
+        if (pizza.dough === Dough.HotDog){
             price = price + 20;
         }
 
@@ -105,14 +104,14 @@ function Main({ pizzas, basket, setBasket, setPizzas }: MainProps) {
         <main>
             <div className="title">
                 <h1>Меню</h1>
-                <Link to={'/pizzamaker'}><img className="baners" src={baners}/></Link>
-                <Link to={'/pizzamaker'}><img className="banersMedia" src={banersMedia}/></Link>
+                <Link to={'/pizzamaker'}><img className="baners" src={baners} alt="baner"/></Link>
+                <Link to={'/pizzamaker'}><img className="banersMedia" src={banersMedia} alt="banerMedia"/></Link>
             </div>
 
             <div className="divPizza">
                 {pizzas?.map((pizza, index) =>
                     <div className="pizza1" key={index}>
-                        <img src={pizza.img} />
+                        <img src={pizza.img} alt="pizza"/>
                         <h2>{pizza.name}</h2>
                         <div className="centimeters">
                             <p onClick={(e) => onChangeCentimeters(25, index)} className={(pizza.cm === 25) ? "active" : ""}>25 см</p>

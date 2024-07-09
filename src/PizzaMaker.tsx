@@ -1,4 +1,4 @@
-import React, {useState, useLayoutEffect} from "react";
+import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import './PizzaMaker.css';
 import './App.css';
@@ -112,11 +112,11 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                 <div className="twoPizzas">
                     <div className="divTwoPizzas">
                         {twoHalfPizza.pizza1 == null ? 
-                            <img className="halfPizza" src="/PizzaMaker/half1.png"/> :
+                            <img className="halfPizza" src="/PizzaMaker/half1.png" alt="half pizza 1"/> :
                             <div className="pizzaContainer1"><img className="imgPizza1" src={twoHalfPizza.pizza1.img} alt=""/></div>
                         }
                         {twoHalfPizza.pizza2 == null ? 
-                            <img className="halfPizza" src="/PizzaMaker/half2.png"/> :
+                            <img className="halfPizza" src="/PizzaMaker/half2.png" alt="half pizza 2"/> :
                             <div className="pizzaContainer2"><img className="imgPizza2" src={twoHalfPizza.pizza2.img} alt=""/></div>
                         }
                     </div>
@@ -141,7 +141,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse == Souse.Ranch}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Ranch}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -152,7 +152,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza circlePizza2"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse == Souse.Tomato}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Tomato}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -165,7 +165,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza circlePizza3"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse == Souse.Plum}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Plum}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -176,7 +176,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza circlePizza4"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse == Souse.Cheese}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.Cheese}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -190,7 +190,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><div className="circlePizza circlePizza5"></div></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse == Souse.BBQ}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.souse === Souse.BBQ}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -208,7 +208,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><img src="/PizzaMaker/thin.png" alt="thin"/></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough == Dough.Thin}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough === Dough.Thin}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -219,7 +219,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><img src="/PizzaMaker/lush.png" alt="lush"/></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough == Dough.Lush}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough === Dough.Lush}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
@@ -230,7 +230,7 @@ function PizzaMaker({ pizzas, basket, setBasket }: PizzaMakerProps) {
                                     <div className="divCirclePizza"><img src="/PizzaMaker/HotDog.png" alt="Hot-dog"/></div>
                                     <div className="content">
                                         <label className="checkBox">
-                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough == Dough.HotDog}/>
+                                            <input id="ch1" type="checkbox" checked={twoHalfPizza.dough === Dough.HotDog}/>
                                             <div className="transition"></div>
                                         </label>
                                     </div>
